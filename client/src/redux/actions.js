@@ -1,4 +1,4 @@
-import {ADD_DESKTOP, CHANGE_DESKTOP, CHANGE_NAME, SHOW_CHANGE_NAME, SORTABLE} from "./types";
+import {ADD_DESKTOP, CHANGE_DESKTOP, CHANGE_NAME, DELETE_DESKTOP, SHOW_CHANGE_NAME, SORTABLE} from "./types";
 import {getRandomId} from "../utils/utils";
 
 export function addDesktop() {
@@ -36,5 +36,11 @@ export function changeDesktopName(id, name) {
   return {
     type: CHANGE_NAME,
     id, name
+  }
+}
+export function deleteDesktop(id) {
+  return {
+    type: DELETE_DESKTOP,
+    id
   }
 }

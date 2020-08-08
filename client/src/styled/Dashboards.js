@@ -33,6 +33,7 @@ export const TabBox = styled.div`
 export const TabIcon = styled.i`
   font-size: 14px;
   padding: 0 5px;
+  cursor: pointer;
   
   :hover {
     color: #07a5fb;

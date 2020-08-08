@@ -1,4 +1,4 @@
-import {ADD_DESKTOP, CHANGE_DESKTOP, CHANGE_NAME, SHOW_CHANGE_NAME, SORTABLE} from "./types";
+import {ADD_DESKTOP, CHANGE_DESKTOP, CHANGE_NAME, DELETE_DESKTOP, SHOW_CHANGE_NAME, SORTABLE} from "./types";
 import {getRandomId} from "../utils/utils";
 
 const initialState = {
@@ -37,7 +37,7 @@ const initialState = {
 export const desktopReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DESKTOP: {
-      return {...state, desktopState: state.desktopState.concat([action.payload])}
+      return {...state, desktopState: state.desktopState.concat([action.payload]), currentDesktop: action.payload.desktopId}
     }
     case SORTABLE: {
       return {...state, desktopState: action.newState}
@@ -55,6 +55,9 @@ export const desktopReducer = (state = initialState, action) => {
         }
         return node
         })}
+    }
+    case DELETE_DESKTOP: {
+      return {...state, desktopState: state.desktopState.filter(node => node.desktopId !== action.id)}
     }
     default: return state
   }
