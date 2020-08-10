@@ -7,7 +7,7 @@ import {
   TabAddIcon,
   TabItem,
   TabsContent
-} from "../styled/Dashboards";
+} from "../styled/Tabs";
 import {Tab} from "../components/Tab";
 import {NameChange} from "../components/NameChange";
 
@@ -58,7 +58,7 @@ export const Tabs = () => {
           }
         })}
       </ReactSortable>
-      <TabAdd><TabAddIcon onClick={() => dispatch(addDesktop())} className="material-icons">add_circle_outline</TabAddIcon></TabAdd>
+      <TabAdd><TabAddIcon onClick={() => dispatch(addDesktop())} className="material-icons">add</TabAddIcon></TabAdd>
     </TabsContent>
   )
 }

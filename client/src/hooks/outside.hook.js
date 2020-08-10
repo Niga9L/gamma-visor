@@ -1,18 +1,17 @@
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
-import {isChangeName} from "../redux/actions";
 
-export function useOutsideAlerter(ref) {
+export function useOutside(ref, cb) {
   const dispatch = useDispatch()
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        dispatch(isChangeName())
+        cb()
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref, dispatch]);
+  }, [ref, dispatch, cb]);
 }

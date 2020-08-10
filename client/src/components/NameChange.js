@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react"
-import {ChangeBox, ChangeButton, ChangeInput, ChangeName, ChangeNameTitle} from "../styled/Dashboards"
-import {useOutsideAlerter} from "../hooks/outside.hook"
+import {ChangeBox, ChangeButton, ChangeInput, ChangeName, ChangeNameTitle} from "../styled/Tabs"
+import {useOutside} from "../hooks/outside.hook"
 import {useDispatch, useSelector} from "react-redux"
 import {changeDesktopName, isChangeName} from "../redux/actions"
 
@@ -11,7 +11,7 @@ export const NameChange = props => {
   const [input, setInput] = useState(props.value)
   const currentId = useSelector(state => state.desktop.currentDesktop)
 
-  useOutsideAlerter(wrapRef)
+  useOutside(wrapRef, () => dispatch(isChangeName()))
 
   const pressHandler = event => {
     if (event.key === 'Enter') {
@@ -31,7 +31,7 @@ export const NameChange = props => {
       <ChangeBox>
         <ChangeInput
           ref={inRef}
-          defaultValue={props.value}
+          placeholder={props.value}
           onChange={e => setInput(e.target.value)}
           onKeyPress={pressHandler}
           onClick={() => onClickHandler()}

@@ -1,5 +1,5 @@
 import React from "react";
-import {TabBox, TabIcon, TabName} from "../styled/Dashboards";
+import {TabBox, TabIcon, TabName} from "../styled/Tabs";
 import {useDispatch} from "react-redux";
 import {deleteDesktop} from "../redux/actions";
 
