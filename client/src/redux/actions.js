@@ -6,12 +6,12 @@ import {
   SHOW_CHANGE_NAME,
   SORTABLE,
   SWAP_DESKTOP
-} from "./types";
-import {getRandomId} from "../utils/utils";
+} from "./types"
+import uniqid from "uniqid"
 
 export function addDesktop() {
   const payload = {
-    desktopId: getRandomId(20),
+    desktopId: uniqid(),
     name: 'Новый рабочий стол'
   }
   return {
@@ -63,12 +63,13 @@ export function swapDesktop(widgetId, desktopId) {
 
 export function addWidget(desktopId) {
   const newWidget = {
-    widgetId: getRandomId(100),
+    widgetId: uniqid(),
     desktopPosition: desktopId,
+    title: 'Без названия',
     width: 650,
     height: 380,
-    x: 100,
-    y: 50,
+    x: 320,
+    y: 180,
     zIndex: 102
   }
   return {

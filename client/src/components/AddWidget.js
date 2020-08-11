@@ -1,15 +1,23 @@
-import React from "react";
-import {AddWidgetButton} from "../styled/Desktop";
-import {useDispatch, useSelector} from "react-redux";
-import {addWidget} from "../redux/actions";
+import React, {useState} from "react";
+import {AddWidgetBox, AddWidgetButton} from "../styled/Desktop";
+import {WidgetSettings} from "./WidgetSettings";
+// import {useDispatch, useSelector} from "react-redux";
+// import {addWidget} from "../redux/actions";
 
 export const AddWidget = () => {
-  const currentDesktop = useSelector(state => state.desktop.currentDesktop)
-  const dispatch = useDispatch()
+  // const currentDesktop = useSelector(state => state.desktop.currentDesktop)
+  // const dispatch = useDispatch()
+  const [open, setOpen] = useState(false)
 
   return (
-    <AddWidgetButton onClick={() => dispatch(addWidget(currentDesktop))}>
-      <i className="material-icons">add</i>
-    </AddWidgetButton>
+    <>
+      {open && <AddWidgetBox>
+        <WidgetSettings/>
+      </AddWidgetBox>}
+      <AddWidgetButton onClick={() => setOpen(!open)}>
+        <i className="material-icons">{open ? 'close' : 'add'}</i>
+      </AddWidgetButton>
+    </>
+
   )
 }

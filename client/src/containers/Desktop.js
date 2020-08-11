@@ -1,6 +1,6 @@
 import React from "react";
 import {ResizerBox} from "../styled/Desktop";
-import {ResDrag} from "../components/ResDrag";
+import {Widget} from "../components/Widget";
 import {useSelector} from "react-redux";
 
 export const Desktop = () => {
@@ -13,7 +13,7 @@ export const Desktop = () => {
         .filter(node => node.desktopPosition === currentDesktop)
         .map(widget => {
         return (
-          <ResDrag key={widget.widgetId} widget={widget}/>
+          <Widget key={widget.widgetId} widget={widget}/>
         )
       })}
     </ResizerBox>

@@ -7,8 +7,8 @@ import {
   SHOW_CHANGE_NAME,
   SORTABLE,
   SWAP_DESKTOP
-} from "./types";
-import {getRandomId} from "../utils/utils";
+} from "./types"
+import uniqid from 'uniqid'
 
 const initialState = {
   desktopState: [
@@ -17,33 +17,35 @@ const initialState = {
       name: 'Мой рабочий стол'
     },
     {
-      desktopId: getRandomId(20),
+      desktopId: uniqid(),
       name: 'Рабочий стол 2'
     },
     {
-      desktopId: getRandomId(21),
+      desktopId: uniqid(),
       name: 'Рабочий стол 3'
     },
     {
-      desktopId: getRandomId(22),
+      desktopId: uniqid(),
       name: 'Рабочий стол 4'
     },
   ],
   widgetState: [
     {
-      widgetId: getRandomId(100),
+      widgetId: uniqid(),
       desktopPosition: new Date().getTime().toString(),
       width: 650,
+      title: 'Активность сенсоров',
       height: 380,
       x: 100,
       y: 50,
-      z: 100
+      zIndex: 100
     },
     {
-      widgetId: getRandomId(100),
+      widgetId: uniqid(),
       desktopPosition: new Date().getTime().toString(),
       width: 550,
       height: 300,
+      title: '10 наиболее активных атакующих по РЦМ за день',
       x: 1000,
       y: 150,
       zIndex: 100,
