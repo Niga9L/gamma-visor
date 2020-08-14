@@ -1,7 +1,7 @@
 import React,{useRef} from "react";
 import {Rnd} from "react-rnd";
-import {RnDHeader, RnDIcon, RnDropMenu, RnDTitle, RnDTools} from "../styled/Desktop";
-import {DesktopLists} from "./DesktopLists";
+import {RnDBox, RnDHeader, RnDIcon, RnDropMenu, RnDTitle, RnDTools} from "../styled/Desktop";
+import {DesktopLists} from "../components/DesktopLists";
 import {changePosition, changeSize, changeZIndex, deleteWidget} from "../redux/actions";
 import {useDispatch} from "react-redux";
 
@@ -26,9 +26,10 @@ export const Widget = props => {
         width: full ? window.innerWidth - 20 : widget.width,
         height: full ? window.innerHeight - 20 : widget.height,
       }}
+      cancel='.widgetContent'
       minWidth={550}
       minHeight={350}
-      onDrag={() => dispatch(changeZIndex(widget.widgetId))}
+      onDragStart={() => dispatch(changeZIndex(widget.widgetId))}
       onDragStop={(e, d) => {
         const newPosition = {x: d.x, y: d.y}
         dispatch(changePosition(widget.widgetId, newPosition))
@@ -81,7 +82,9 @@ export const Widget = props => {
           </RnDIcon>
         </RnDTools>}
       </RnDHeader>
-      {props.children}
+      <RnDBox className='widgetContent'>
+        {props.children}
+      </RnDBox>
     </Rnd>
   )
 }

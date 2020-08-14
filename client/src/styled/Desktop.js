@@ -74,6 +74,74 @@ export const WidgetType = styled.button`
 
 `
 
+export const OverflowBox = styled.div`
+  overflow: auto;
+  width: 99%;
+  height: ${({maxHeight}) => parseInt(maxHeight, 10) - 75 + 'px'}}
+`
+
+export const SetName = styled.div`
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: #eee;
+  & p {
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 1px dashed #07a5fb;
+  }
+
+`
+
+export const RnDBox = styled.div`
+  cursor: default;
+  overflow: auto;
+  width: calc(100% - 5px);
+  display: flex;
+  justify-content: center;
+  height: calc(100% - 75px);
+`
+
+export const WidgetContent = styled.div`
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+  cursor: auto;
+  width: 100%;
+  & table {
+    width: 100%;
+    border-spacing: 0;
+    padding: 0 15px;
+  }
+  
+  & td {
+    text-overflow: ellipsis; 
+  white-space: nowrap;
+  overflow: hidden;
+    max-width: 100px;
+    font-weight: 400;
+    padding: 10px 10px 10px 0;
+    color: rgb(105,105,101);
+    border-bottom: 1px solid #eee;
+  }
+  
+  & th {
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+  overflow: hidden;
+     max-width: 100px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+    padding-bottom: 5px;
+    padding-right: 10px ;
+    color: rgb(105,105,101);
+    border-bottom: 2px solid #eee;
+  }
+`
+
 export const WidgetTypeBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -226,4 +294,61 @@ export const DesktopList = styled.li`
 
 export const RnDropMenu = styled.div`
   position: relative;
+`
+
+export const ChartBox =styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const ChartSetting = styled.div`
+  margin-top: 30px;
+  margin-left: 40px;
+  cursor: default;
+  & p {
+    & span {
+      border-bottom: 1px dashed #07a5fb;
+    }
+    
+  }
+  & h2 {
+    padding-top: 15px;
+    color: #327ad5;
+    font-size: 13px;
+    padding-bottom: 15px;
+  }
+  & ul {
+    list-style: none;
+    width: 700px;
+    border-bottom: 1px solid #ddd;  
+
+  }
+  
+  & li {
+    text-align: center;
+    padding: 15px;
+    width: 150px; 
+    background-color: #fff;
+    margin-bottom: -1px;   
+    border: 1px solid #eee;
+    border-bottom-color: transparent;
+  }
+`
+
+export const PreviewChart =styled.div`
+  padding-top: 50px;
+  width: 1000px;
+  margin-right: 50px;
+`
+export const ChangeTextBox =styled.div`
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  border: 1px solid #eee;
+  background: #fff;
+`
+export const ChangeTextTarget =styled.div`
+  position: relative;
+  & p {
+    padding-top: 20px;
+  }
 `

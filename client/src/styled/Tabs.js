@@ -94,12 +94,12 @@ export const ChangeNameTitle = styled.h3`
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
-  padding: 10px 14px 6px;
+  padding: 10px 10px 0;
 `
 
 export const ChangeBox = styled.div`
   display: flex;
-  padding: 5px 10px 15px;
+  padding: 10px 8px;
 `
 
 export const ChangeInput = styled.input`
